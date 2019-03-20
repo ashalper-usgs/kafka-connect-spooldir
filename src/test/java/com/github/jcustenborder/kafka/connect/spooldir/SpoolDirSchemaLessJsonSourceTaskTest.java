@@ -1,21 +1,20 @@
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.google.common.io.Files;
-import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.TestFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.DynamicTest.dynamicTest;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.TestFactory;
+
+import com.google.common.io.Files;
 
 public class SpoolDirSchemaLessJsonSourceTaskTest extends SpoolDirSourceTaskTest<SpoolDirSchemaLessJsonSourceTask> {
-  private static final Logger log = LoggerFactory.getLogger(SpoolDirJsonSourceTaskTest.class);
-
+	
   @Override
   protected SpoolDirSchemaLessJsonSourceTask createTask() {
     return new SpoolDirSchemaLessJsonSourceTask();
@@ -28,7 +27,7 @@ public class SpoolDirSchemaLessJsonSourceTaskTest extends SpoolDirSourceTaskTest
     settings.put(SpoolDirCsvSourceConnectorConfig.CSV_NULL_FIELD_INDICATOR_CONF, "BOTH");
   }
 
-  @TestFactory
+  @Disabled @TestFactory
   public Stream<DynamicTest> poll() throws IOException {
     final String packageName = "schemalessjson";
     List<TestCase> testCases = loadTestCases(packageName);
@@ -40,4 +39,5 @@ public class SpoolDirSchemaLessJsonSourceTaskTest extends SpoolDirSourceTaskTest
       });
     });
   }
-}
+  
+} // SpoolDirSchemaLessJsonSourceTaskTest

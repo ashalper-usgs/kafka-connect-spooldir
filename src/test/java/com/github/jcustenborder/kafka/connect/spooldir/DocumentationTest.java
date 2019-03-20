@@ -13,15 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.github.jcustenborder.kafka.connect.spooldir;
+
+import org.junit.jupiter.api.Disabled;
 
 import com.github.jcustenborder.kafka.connect.utils.BaseDocumentationTest;
 
+@Disabled
 public class DocumentationTest extends BaseDocumentationTest {
 
-  @Override
-  protected String[] packages() {
-    return new String[]{this.getClass().getPackage().getName()};
-  }
+	@Override
+	protected String[] packages() {
+		return new String[] { this.getClass().getPackage().getName() };
+	}
 
-}
+} // DocumentationTest
