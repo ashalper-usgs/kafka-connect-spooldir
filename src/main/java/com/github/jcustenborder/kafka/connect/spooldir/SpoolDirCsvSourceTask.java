@@ -15,16 +15,6 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.google.common.base.Joiner;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
-import com.opencsv.ICSVParser;
-import org.apache.kafka.connect.data.Field;
-import org.apache.kafka.connect.data.SchemaAndValue;
-import org.apache.kafka.connect.data.Struct;
-import org.apache.kafka.connect.errors.DataException;
-import org.apache.kafka.connect.source.SourceRecord;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -32,13 +22,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.kafka.connect.data.Field;
+import org.apache.kafka.connect.data.SchemaAndValue;
+import org.apache.kafka.connect.data.Struct;
+import org.apache.kafka.connect.errors.DataException;
+import org.apache.kafka.connect.source.SourceRecord;
+
+import com.google.common.base.Joiner;
+
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.ICSVParser;
+
 public class SpoolDirCsvSourceTask extends SpoolDirSourceTask<SpoolDirCsvSourceConnectorConfig> {
   String[] fieldNames;
   private ICSVParser csvParser;
   private CSVReader csvReader;
   private InputStreamReader streamReader;
   private Map<String, String> fileMetadata;
-
 
   @Override
   protected SpoolDirCsvSourceConnectorConfig config(Map<String, ?> settings) {
@@ -71,8 +72,7 @@ public class SpoolDirCsvSourceTask extends SpoolDirSourceTask<SpoolDirCsvSourceC
 
     if (null != lastOffset) {
       log.info("Found previous offset. Skipping {} line(s).", lastOffset.intValue());
-      String[] row = null;
-      while (null != (row = this.csvReader.readNext()) && this.csvReader.getLinesRead() < lastOffset) {
+      while (null != (this.csvReader.readNext()) && this.csvReader.getLinesRead() < lastOffset) {
         log.trace("skipped row");
       }
     }
@@ -148,4 +148,5 @@ public class SpoolDirCsvSourceTask extends SpoolDirSourceTask<SpoolDirCsvSourceC
     }
     return records;
   }
-}
+  
+} // SpoolDirCsvSourceTask
