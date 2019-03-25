@@ -215,6 +215,8 @@ public abstract class AbstractSourceTask<CONF extends AbstractSourceConnectorCon
           case DELETE:
             closeAndDelete();
             break;
+          default:
+            break;
         }
 
         File nextFile = this.inputFileDequeue.poll();
