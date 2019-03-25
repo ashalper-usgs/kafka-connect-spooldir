@@ -15,19 +15,21 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
+import java.io.File;
+import java.util.Map;
+import java.util.regex.Pattern;
+
+import org.apache.kafka.common.config.AbstractConfig;
+import org.apache.kafka.common.config.ConfigDef;
+
 import com.github.jcustenborder.kafka.connect.utils.config.ConfigKeyBuilder;
 import com.github.jcustenborder.kafka.connect.utils.config.ConfigUtils;
 import com.github.jcustenborder.kafka.connect.utils.config.ValidEnum;
 import com.github.jcustenborder.kafka.connect.utils.config.ValidPattern;
 import com.github.jcustenborder.kafka.connect.utils.config.recommenders.Recommenders;
 import com.github.jcustenborder.kafka.connect.utils.config.validators.filesystem.ValidDirectoryWritable;
-import com.google.common.io.PatternFilenameFilter;
-import org.apache.kafka.common.config.AbstractConfig;
-import org.apache.kafka.common.config.ConfigDef;
 
-import java.io.File;
-import java.util.Map;
-import java.util.regex.Pattern;
+import com.google.common.io.PatternFilenameFilter;
 
 public abstract class AbstractSourceConnectorConfig extends AbstractConfig {
   public static final String FINISHED_PATH_CONFIG = "finished.path";
