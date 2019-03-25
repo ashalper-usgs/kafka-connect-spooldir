@@ -15,23 +15,6 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.github.jcustenborder.kafka.connect.utils.config.ConfigKeyBuilder;
-import com.github.jcustenborder.kafka.connect.utils.config.recommenders.Recommenders;
-import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
-import com.google.common.base.Preconditions;
-import com.google.common.base.Strings;
-import com.google.common.collect.ImmutableList;
-import org.apache.kafka.common.config.ConfigDef;
-import org.apache.kafka.common.config.ConfigDef.Type;
-import org.apache.kafka.connect.data.Field;
-import org.apache.kafka.connect.data.Schema;
-import org.apache.kafka.connect.data.Timestamp;
-import org.apache.kafka.connect.errors.ConnectException;
-import org.apache.kafka.connect.errors.DataException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,8 +23,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 
+import org.apache.kafka.common.config.ConfigDef;
+import org.apache.kafka.common.config.ConfigDef.Type;
+import org.apache.kafka.connect.data.Field;
+import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.data.Timestamp;
+import org.apache.kafka.connect.errors.ConnectException;
+import org.apache.kafka.connect.errors.DataException;
 
-@SuppressWarnings("WeakerAccess")
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import com.github.jcustenborder.kafka.connect.utils.config.ConfigKeyBuilder;
+import com.github.jcustenborder.kafka.connect.utils.config.recommenders.Recommenders;
+import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
+
+import com.google.common.base.Preconditions;
+import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableList;
+
 public abstract class SpoolDirSourceConnectorConfig extends AbstractSourceConnectorConfig {
   public static final String TIMESTAMP_FIELD_CONF = "timestamp.field";
   public static final String KEY_SCHEMA_CONF = "key.schema";
@@ -350,4 +352,4 @@ public abstract class SpoolDirSourceConnectorConfig extends AbstractSourceConnec
     return result;
   }
 
-}
+} // SpoolDirSourceConnectorConfig

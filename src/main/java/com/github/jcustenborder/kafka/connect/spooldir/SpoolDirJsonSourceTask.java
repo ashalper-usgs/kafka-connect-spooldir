@@ -15,22 +15,24 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
-import org.apache.kafka.connect.data.Field;
-import org.apache.kafka.connect.data.SchemaAndValue;
-import org.apache.kafka.connect.data.Struct;
-import org.apache.kafka.connect.errors.DataException;
-import org.apache.kafka.connect.source.SourceRecord;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.kafka.connect.data.Field;
+import org.apache.kafka.connect.data.SchemaAndValue;
+import org.apache.kafka.connect.data.Struct;
+import org.apache.kafka.connect.errors.DataException;
+import org.apache.kafka.connect.source.SourceRecord;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.JsonNode;
+
+import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
 
 public class SpoolDirJsonSourceTask extends SpoolDirSourceTask<SpoolDirJsonSourceConnectorConfig> {
   JsonFactory jsonFactory;
@@ -121,4 +123,5 @@ public class SpoolDirJsonSourceTask extends SpoolDirSourceTask<SpoolDirJsonSourc
   protected long recordOffset() {
     return this.offset;
   }
-}
+  
+} // SpoolDirJsonSourceTask

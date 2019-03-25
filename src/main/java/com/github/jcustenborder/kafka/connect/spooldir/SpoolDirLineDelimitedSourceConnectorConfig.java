@@ -18,7 +18,9 @@ package com.github.jcustenborder.kafka.connect.spooldir;
 import java.util.Map;
 
 public class SpoolDirLineDelimitedSourceConnectorConfig extends AbstractSourceConnectorConfig {
+
   public SpoolDirLineDelimitedSourceConnectorConfig(Map<?, ?> originals) {
     super(config(), originals);
   }
-}
+
+} // SpoolDirLineDelimitedSourceConnectorConfig

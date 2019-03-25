@@ -15,17 +15,18 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
+import java.util.List;
+import java.util.Map;
+
+import org.apache.kafka.common.config.ConfigDef;
+import org.apache.kafka.connect.connector.Task;
+import org.apache.kafka.connect.source.SourceConnector;
+
 import com.github.jcustenborder.kafka.connect.utils.VersionUtil;
 import com.github.jcustenborder.kafka.connect.utils.config.Description;
 import com.github.jcustenborder.kafka.connect.utils.config.DocumentationImportant;
 import com.github.jcustenborder.kafka.connect.utils.config.TaskConfigs;
 import com.github.jcustenborder.kafka.connect.utils.config.Title;
-import org.apache.kafka.common.config.ConfigDef;
-import org.apache.kafka.connect.connector.Task;
-import org.apache.kafka.connect.source.SourceConnector;
-
-import java.util.List;
-import java.util.Map;
 
 @Title("Line Delimited Source Connector")
 @Description("This connector is used to read a file line by line and write the data to Kafka.")

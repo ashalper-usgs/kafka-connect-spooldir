@@ -18,7 +18,9 @@ package com.github.jcustenborder.kafka.connect.spooldir;
 import java.util.Map;
 
 public class SpoolDirSchemaLessJsonSourceConnectorConfig extends AbstractSourceConnectorConfig {
+
   public SpoolDirSchemaLessJsonSourceConnectorConfig(Map<?, ?> originals) {
     super(config(), originals);
   }
-}
+  
+} // SpoolDirSchemaLessJsonSourceConnectorConfig

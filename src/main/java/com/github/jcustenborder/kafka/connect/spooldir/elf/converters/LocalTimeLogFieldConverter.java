@@ -36,4 +36,5 @@ public class LocalTimeLogFieldConverter extends LogFieldConverter {
   public LocalTimeLogFieldConverter(String logFieldName, Field field) {
     super(logFieldName, field);
   }
-}
+
+} // LocalTimeLogFieldConverter

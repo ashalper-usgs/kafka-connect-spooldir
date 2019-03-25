@@ -15,11 +15,12 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir.elf;
 
-import com.github.jcustenborder.kafka.connect.spooldir.SpoolDirSourceConnectorConfig;
-import com.github.jcustenborder.kafka.connect.utils.config.ConfigKeyBuilder;
+import java.util.Map;
+
 import org.apache.kafka.common.config.ConfigDef;
 
-import java.util.Map;
+import com.github.jcustenborder.kafka.connect.spooldir.SpoolDirSourceConnectorConfig;
+import com.github.jcustenborder.kafka.connect.utils.config.ConfigKeyBuilder;
 
 class SpoolDirELFSourceConnectorConfig extends SpoolDirSourceConnectorConfig {
 
@@ -55,4 +56,4 @@ class SpoolDirELFSourceConnectorConfig extends SpoolDirSourceConnectorConfig {
         );
   }
 
-}
+} // SpoolDirELFSourceConnectorConfig

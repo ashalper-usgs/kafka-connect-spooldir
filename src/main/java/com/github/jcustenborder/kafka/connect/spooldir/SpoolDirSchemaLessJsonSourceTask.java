@@ -15,24 +15,23 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MappingIterator;
-import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
-import org.apache.kafka.connect.data.Schema;
-import org.apache.kafka.connect.data.SchemaAndValue;
-import org.apache.kafka.connect.source.SourceRecord;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.data.SchemaAndValue;
+import org.apache.kafka.connect.source.SourceRecord;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MappingIterator;
+
+import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
+
 public class SpoolDirSchemaLessJsonSourceTask extends AbstractSourceTask<SpoolDirSchemaLessJsonSourceConnectorConfig> {
-  private static final Logger log = LoggerFactory.getLogger(SpoolDirSchemaLessJsonSourceTask.class);
 
   @Override
   protected SpoolDirSchemaLessJsonSourceConnectorConfig config(Map<String, ?> settings) {
@@ -52,7 +51,6 @@ public class SpoolDirSchemaLessJsonSourceTask extends AbstractSourceTask<SpoolDi
     this.recordOffset = 0;
     this.parser = ObjectMapperFactory.INSTANCE.getJsonFactory().createParser(inputStream);
     this.nodeIterator = ObjectMapperFactory.INSTANCE.readValues(this.parser, JsonNode.class);
-
   }
 
   @Override
@@ -78,4 +76,5 @@ public class SpoolDirSchemaLessJsonSourceTask extends AbstractSourceTask<SpoolDi
   protected long recordOffset() {
     return this.recordOffset;
   }
-}
+
+} // SpoolDirSchemaLessJsonSourceTask
