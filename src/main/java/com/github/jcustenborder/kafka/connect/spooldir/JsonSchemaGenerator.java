@@ -15,17 +15,19 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
-import org.apache.kafka.connect.data.Schema;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import org.apache.kafka.connect.data.Schema;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.JsonNode;
+
+import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
 
 public class JsonSchemaGenerator extends SchemaGenerator<SpoolDirJsonSourceConnectorConfig> {
   public JsonSchemaGenerator(Map<String, ?> settings) {
@@ -58,4 +60,5 @@ public class JsonSchemaGenerator extends SchemaGenerator<SpoolDirJsonSourceConne
 
     return typeMap;
   }
-}
+
+} // JsonSchemaGenerator

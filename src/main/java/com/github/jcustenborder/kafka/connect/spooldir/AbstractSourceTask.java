@@ -208,7 +208,6 @@ public abstract class AbstractSourceTask<CONF extends AbstractSourceConnectorCon
     try {
       if (!hasRecords) {
 
-
         switch (this.config.cleanupPolicy) {
           case MOVE:
             closeAndMoveToFinished(this.config.finishedPath, false);
@@ -327,5 +326,4 @@ public abstract class AbstractSourceTask<CONF extends AbstractSourceConnectorCon
     );
   }
 
-
-}
+} // AbstractSourceTask

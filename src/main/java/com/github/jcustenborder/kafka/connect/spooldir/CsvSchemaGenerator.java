@@ -15,20 +15,18 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.opencsv.CSVReader;
-import com.opencsv.ICSVParser;
-import org.apache.kafka.connect.data.Schema;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.apache.kafka.connect.data.Schema;
+
+import com.opencsv.CSVReader;
+import com.opencsv.ICSVParser;
+
 public class CsvSchemaGenerator extends SchemaGenerator<SpoolDirCsvSourceConnectorConfig> {
-  private static final Logger log = LoggerFactory.getLogger(CsvSchemaGenerator.class);
 
   public CsvSchemaGenerator(Map<String, ?> settings) {
     super(settings);
@@ -68,5 +66,4 @@ public class CsvSchemaGenerator extends SchemaGenerator<SpoolDirCsvSourceConnect
     return typeMap;
   }
 
-
-}
+} // CsvSchemaGenerator

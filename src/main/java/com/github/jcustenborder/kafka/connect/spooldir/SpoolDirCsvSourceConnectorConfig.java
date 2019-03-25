@@ -15,11 +15,20 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
+import java.io.Reader;
+import java.nio.charset.Charset;
+import java.util.Map;
+
+import org.apache.kafka.common.config.ConfigDef;
+import org.apache.kafka.connect.errors.DataException;
+
 import com.github.jcustenborder.kafka.connect.utils.config.ConfigKeyBuilder;
 import com.github.jcustenborder.kafka.connect.utils.config.ConfigUtils;
 import com.github.jcustenborder.kafka.connect.utils.config.ValidEnum;
+
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
+
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -27,16 +36,9 @@ import com.opencsv.CSVReaderBuilder;
 import com.opencsv.ICSVParser;
 import com.opencsv.RFC4180ParserBuilder;
 import com.opencsv.enums.CSVReaderNullFieldIndicator;
-import org.apache.kafka.common.config.ConfigDef;
-import org.apache.kafka.connect.errors.DataException;
-
-import java.io.Reader;
-import java.nio.charset.Charset;
-import java.util.Map;
 
 class SpoolDirCsvSourceConnectorConfig extends SpoolDirSourceConnectorConfig {
 
-  //CSVRecordProcessorConfig
   public static final String CSV_SKIP_LINES_CONF = "csv.skip.lines";
   public static final String CSV_SEPARATOR_CHAR_CONF = "csv.separator.char";
   public static final String CSV_QUOTE_CHAR_CONF = "csv.quote.char";
@@ -352,4 +354,5 @@ class SpoolDirCsvSourceConnectorConfig extends SpoolDirSourceConnectorConfig {
       return Joiner.on(",").join(Charset.availableCharsets().keySet());
     }
   }
-}
+
+} // SpoolDirCsvSourceConnectorConfig

@@ -36,7 +36,6 @@ public abstract class AbstractSourceConnectorConfig extends AbstractConfig {
   public static final String HALT_ON_ERROR_CONF = "halt.on.error";
   public static final String FILE_MINIMUM_AGE_MS_CONF = "file.minimum.age.ms";
   public static final String PROCESSING_FILE_EXTENSION_CONF = "processing.file.extension";
-  //RecordProcessorConfig
   public static final String BATCH_SIZE_CONF = "batch.size";
   public static final String PROCESSING_FILE_EXTENSION_DEFAULT = ".PROCESSING";
   public static final String TOPIC_CONF = "topic";
@@ -49,8 +48,6 @@ public abstract class AbstractSourceConnectorConfig extends AbstractConfig {
       "filesystem. MOVE will move the file to a finished directory.";
   public static final String GROUP_FILESYSTEM = "File System";
   public static final String GROUP_GENERAL = "General";
-  //DirectoryMonitorConfig
-  //PollingDirectoryMonitorConfig
   public static final String INPUT_PATH_CONFIG = "input.path";
   public static final String TIMESTAMP_MODE_CONF = "timestamp.mode";
   public static final String GROUP_TIMESTAMP = "Timestamps";
@@ -76,7 +73,6 @@ public abstract class AbstractSourceConnectorConfig extends AbstractConfig {
       " in `" + SpoolDirSourceConnectorConfig.TIMESTAMP_FIELD_CONF + "`. " +
       "If set to `FILE_TIME` then " +
       "the last modified time of the file will be used. If set to `PROCESS_TIME` the time the record is read will be used.";
-
 
   public final File inputPath;
   public final File finishedPath;
@@ -225,4 +221,5 @@ public abstract class AbstractSourceConnectorConfig extends AbstractConfig {
     DELETE,
     MOVE
   }
-}
+  
+} // AbstractSourceConnectorConfig

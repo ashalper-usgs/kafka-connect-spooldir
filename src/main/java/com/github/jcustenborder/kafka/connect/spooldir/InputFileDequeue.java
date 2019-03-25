@@ -15,10 +15,6 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.google.common.collect.ForwardingDeque;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -26,6 +22,11 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Deque;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.collect.ForwardingDeque;
 
 public class InputFileDequeue extends ForwardingDeque<File> {
   private static final Logger log = LoggerFactory.getLogger(InputFileDequeue.class);
@@ -39,7 +40,6 @@ public class InputFileDequeue extends ForwardingDeque<File> {
     String fileName = input.getName() + processingFileExtension;
     return new File(input.getParentFile(), fileName);
   }
-
 
   Deque<File> files;
 
@@ -87,4 +87,5 @@ public class InputFileDequeue extends ForwardingDeque<File> {
     log.info("Found {} file(s) to process", result.size());
     return (this.files = result);
   }
-}
+
+} // InputFileDequeue

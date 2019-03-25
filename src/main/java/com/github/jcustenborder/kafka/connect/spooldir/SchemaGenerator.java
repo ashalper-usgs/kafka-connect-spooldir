@@ -15,20 +15,6 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
-import com.google.common.base.Strings;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import net.sourceforge.argparse4j.ArgumentParsers;
-import net.sourceforge.argparse4j.inf.ArgumentParser;
-import net.sourceforge.argparse4j.inf.ArgumentParserException;
-import net.sourceforge.argparse4j.inf.Namespace;
-import org.apache.kafka.connect.data.Schema;
-import org.apache.kafka.connect.data.SchemaBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -39,6 +25,24 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+
+import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.data.SchemaBuilder;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
+import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+
+import net.sourceforge.argparse4j.ArgumentParsers;
+import net.sourceforge.argparse4j.inf.ArgumentParser;
+import net.sourceforge.argparse4j.inf.ArgumentParserException;
+import net.sourceforge.argparse4j.inf.Namespace;
 
 public abstract class SchemaGenerator<CONFIG extends SpoolDirSourceConnectorConfig> {
   static final String DUMMY_SCHEMA;
@@ -135,7 +139,7 @@ public abstract class SchemaGenerator<CONFIG extends SpoolDirSourceConnectorConf
       }
     }
 
-    final SchemaGenerator generator;
+    final SchemaGenerator<?> generator;
     final String type = ns.getString("type");
 
     if ("csv".equalsIgnoreCase(type)) {
@@ -214,4 +218,4 @@ public abstract class SchemaGenerator<CONFIG extends SpoolDirSourceConnectorConf
     return new AbstractMap.SimpleEntry<>(keySchemaBuilder.build(), valueSchemaBuilder.build());
   }
 
-}
+} // SchemaGenerator

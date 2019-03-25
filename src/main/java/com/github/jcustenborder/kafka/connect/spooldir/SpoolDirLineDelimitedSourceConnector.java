@@ -37,7 +37,6 @@ public class SpoolDirLineDelimitedSourceConnector extends SourceConnector {
 
   @Override
   public void start(Map<String, String> settings) {
-    SpoolDirSchemaLessJsonSourceConnectorConfig config = new SpoolDirSchemaLessJsonSourceConnectorConfig(settings);
     this.settings = settings;
   }
 
@@ -65,4 +64,5 @@ public class SpoolDirLineDelimitedSourceConnector extends SourceConnector {
   public String version() {
     return VersionUtil.version(this.getClass());
   }
-}
+  
+} // SpoolDirLineDelimitedSourceConnector
