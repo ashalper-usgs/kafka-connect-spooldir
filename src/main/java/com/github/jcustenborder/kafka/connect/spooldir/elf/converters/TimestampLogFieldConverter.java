@@ -15,17 +15,19 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir.elf.converters;
 
-import com.github.jcustenborder.parsers.elf.LogEntry;
-import org.apache.kafka.connect.data.Field;
-import org.apache.kafka.connect.data.Struct;
-
 import java.sql.Date;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
 
+import org.apache.kafka.connect.data.Field;
+import org.apache.kafka.connect.data.Struct;
+
+import com.github.jcustenborder.parsers.elf.LogEntry;
+
 public class TimestampLogFieldConverter extends LogFieldConverter {
+
   private final String timeField;
   private final String dateField;
 
@@ -55,4 +57,5 @@ public class TimestampLogFieldConverter extends LogFieldConverter {
     }
     struct.put(this.field, value);
   }
-}
+  
+} // TimestampLogFieldConverter

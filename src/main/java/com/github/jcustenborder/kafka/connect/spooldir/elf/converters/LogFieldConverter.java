@@ -15,13 +15,16 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir.elf.converters;
 
-import com.github.jcustenborder.parsers.elf.LogEntry;
 import org.apache.kafka.connect.data.Field;
 import org.apache.kafka.connect.data.Struct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.jcustenborder.parsers.elf.LogEntry;
+
 public abstract class LogFieldConverter {
+
   private static final Logger log = LoggerFactory.getLogger(LogFieldConverter.class);
   protected final String logFieldName;
   protected final Field field;
@@ -46,4 +49,4 @@ public abstract class LogFieldConverter {
     struct.put(this.field, output);
   }
 
-}
+} // LogFieldConverter

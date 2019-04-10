@@ -15,12 +15,9 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.github.jcustenborder.kafka.connect.utils.data.Parser;
-import com.github.jcustenborder.kafka.connect.utils.data.type.DateTypeParser;
-import com.github.jcustenborder.kafka.connect.utils.data.type.TimeTypeParser;
-import com.github.jcustenborder.kafka.connect.utils.data.type.TimestampTypeParser;
-import com.github.jcustenborder.kafka.connect.utils.data.type.TypeParser;
-import com.google.common.collect.ImmutableMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.kafka.connect.data.Date;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaAndValue;
@@ -28,11 +25,17 @@ import org.apache.kafka.connect.data.Struct;
 import org.apache.kafka.connect.data.Time;
 import org.apache.kafka.connect.data.Timestamp;
 import org.apache.kafka.connect.source.SourceRecord;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
-import java.util.Map;
+import com.github.jcustenborder.kafka.connect.utils.data.Parser;
+import com.github.jcustenborder.kafka.connect.utils.data.type.DateTypeParser;
+import com.github.jcustenborder.kafka.connect.utils.data.type.TimeTypeParser;
+import com.github.jcustenborder.kafka.connect.utils.data.type.TimestampTypeParser;
+import com.github.jcustenborder.kafka.connect.utils.data.type.TypeParser;
+
+import com.google.common.collect.ImmutableMap;
 
 public abstract class SpoolDirSourceTask<CONF extends SpoolDirSourceConnectorConfig> extends AbstractSourceTask<CONF> {
   static final Logger log = LoggerFactory.getLogger(SpoolDirSourceTask.class);
@@ -100,4 +103,4 @@ public abstract class SpoolDirSourceTask<CONF extends SpoolDirSourceConnectorCon
     records.add(sourceRecord);
   }
 
-}
+} // SpoolDirSourceTask

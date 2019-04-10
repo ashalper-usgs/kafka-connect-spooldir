@@ -15,23 +15,25 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir.elf;
 
-import com.github.jcustenborder.kafka.connect.spooldir.SpoolDirSourceTask;
-import com.github.jcustenborder.parsers.elf.ElfParser;
-import com.github.jcustenborder.parsers.elf.ElfParserBuilder;
-import com.github.jcustenborder.parsers.elf.LogEntry;
-import org.apache.commons.lang3.tuple.Pair;
-import org.apache.kafka.connect.data.SchemaAndValue;
-import org.apache.kafka.connect.data.Struct;
-import org.apache.kafka.connect.errors.ConnectException;
-import org.apache.kafka.connect.source.SourceRecord;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.lang3.tuple.Pair;
+import org.apache.kafka.connect.data.SchemaAndValue;
+import org.apache.kafka.connect.data.Struct;
+import org.apache.kafka.connect.errors.ConnectException;
+import org.apache.kafka.connect.source.SourceRecord;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.github.jcustenborder.kafka.connect.spooldir.SpoolDirSourceTask;
+import com.github.jcustenborder.parsers.elf.ElfParser;
+import com.github.jcustenborder.parsers.elf.ElfParserBuilder;
+import com.github.jcustenborder.parsers.elf.LogEntry;
 
 public class SpoolDirELFSourceTask extends SpoolDirSourceTask<SpoolDirELFSourceConnectorConfig> {
   private static final Logger log = LoggerFactory.getLogger(SpoolDirELFSourceTask.class);
@@ -50,7 +52,6 @@ public class SpoolDirELFSourceTask extends SpoolDirSourceTask<SpoolDirELFSourceC
     super.start(settings);
     this.parserBuilder = ElfParserBuilder.of().separator(this.config.separatorChar);
   }
-
 
   @Override
   protected void configure(InputStream inputStream, Map<String, String> metadata, Long lastOffset) throws IOException {
@@ -108,4 +109,5 @@ public class SpoolDirELFSourceTask extends SpoolDirSourceTask<SpoolDirELFSourceC
   protected long recordOffset() {
     return this.offset;
   }
-}
+
+} // SpoolDirELFSourceTask

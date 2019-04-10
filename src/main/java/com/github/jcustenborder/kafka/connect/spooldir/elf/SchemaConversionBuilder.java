@@ -15,20 +15,23 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir.elf;
 
-import com.github.jcustenborder.kafka.connect.spooldir.elf.converters.LogFieldConverter;
-import com.github.jcustenborder.kafka.connect.spooldir.elf.converters.LogFieldConverterFactory;
-import com.github.jcustenborder.parsers.elf.ElfParser;
-import com.google.common.base.Preconditions;
-import org.apache.kafka.connect.data.Schema;
-import org.apache.kafka.connect.data.SchemaBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.data.SchemaBuilder;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.github.jcustenborder.kafka.connect.spooldir.elf.converters.LogFieldConverter;
+import com.github.jcustenborder.kafka.connect.spooldir.elf.converters.LogFieldConverterFactory;
+import com.github.jcustenborder.parsers.elf.ElfParser;
+
+import com.google.common.base.Preconditions;
 
 public class SchemaConversionBuilder {
   private static final Logger log = LoggerFactory.getLogger(SchemaConversionBuilder.class);
@@ -48,7 +51,6 @@ public class SchemaConversionBuilder {
         .toLowerCase();
     return result;
   }
-
 
   public SchemaConversion build() {
     log.trace("build() - Building SchemaConversion");
@@ -88,4 +90,5 @@ public class SchemaConversionBuilder {
 
     return new SchemaConversion(null, valueSchema, null, valueConverters);
   }
-}
+  
+} // SchemaConversionBuilder

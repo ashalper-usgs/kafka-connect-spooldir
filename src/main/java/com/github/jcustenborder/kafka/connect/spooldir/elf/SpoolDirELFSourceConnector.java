@@ -15,14 +15,15 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir.elf;
 
+import java.util.Map;
+
+import org.apache.kafka.common.config.ConfigDef;
+import org.apache.kafka.connect.connector.Task;
+
 import com.github.jcustenborder.kafka.connect.spooldir.SchemaGenerator;
 import com.github.jcustenborder.kafka.connect.spooldir.SpoolDirSourceConnector;
 import com.github.jcustenborder.kafka.connect.utils.config.Description;
 import com.github.jcustenborder.kafka.connect.utils.config.Title;
-import org.apache.kafka.common.config.ConfigDef;
-import org.apache.kafka.connect.connector.Task;
-
-import java.util.Map;
 
 @Title("Extended Log File Format Source Connector")
 @Description("This connector is used to stream `Extended Log File Format <https://www.w3.org/TR/WD-logfile.html>` " +
@@ -48,4 +49,5 @@ public class SpoolDirELFSourceConnector extends SpoolDirSourceConnector<SpoolDir
   public ConfigDef config() {
     return SpoolDirELFSourceConnectorConfig.config();
   }
-}
+
+} // SpoolDirELFSourceConnector

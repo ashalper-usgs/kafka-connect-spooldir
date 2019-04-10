@@ -15,11 +15,12 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import org.apache.kafka.common.config.ConfigDef;
-
 import java.util.Map;
 
+import org.apache.kafka.common.config.ConfigDef;
+
 class SpoolDirJsonSourceConnectorConfig extends SpoolDirSourceConnectorConfig {
+
   public SpoolDirJsonSourceConnectorConfig(final boolean isTask, Map<String, ?> settings) {
     super(isTask, config(), settings);
   }
@@ -33,4 +34,4 @@ class SpoolDirJsonSourceConnectorConfig extends SpoolDirSourceConnectorConfig {
     return SpoolDirSourceConnectorConfig.config();
   }
 
-}
+} // SpoolDirJsonSourceConnectorConfig

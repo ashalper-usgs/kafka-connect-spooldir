@@ -15,19 +15,17 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir.elf;
 
-import com.github.jcustenborder.kafka.connect.spooldir.elf.converters.LogFieldConverter;
-import com.github.jcustenborder.parsers.elf.LogEntry;
+import java.util.List;
+
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.Struct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.util.List;
+import com.github.jcustenborder.kafka.connect.spooldir.elf.converters.LogFieldConverter;
+import com.github.jcustenborder.parsers.elf.LogEntry;
 
 public class SchemaConversion {
-  private static final Logger log = LoggerFactory.getLogger(SchemaConversion.class);
   private final Schema keySchema;
   private final Schema valueSchema;
   private final List<LogFieldConverter> keyConverters;
@@ -39,7 +37,6 @@ public class SchemaConversion {
     this.keyConverters = keyConverters;
     this.valueConverters = valueConverters;
   }
-
 
   public Pair<Struct, Struct> convert(LogEntry entry) {
     final Struct key = null != this.keySchema ? new Struct(this.keySchema) : null;
@@ -61,4 +58,5 @@ public class SchemaConversion {
     value.validate();
     return new ImmutablePair<>(key, value);
   }
-}
+
+} // SchemaConversion

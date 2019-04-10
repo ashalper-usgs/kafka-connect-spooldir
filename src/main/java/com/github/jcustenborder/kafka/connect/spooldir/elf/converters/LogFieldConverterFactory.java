@@ -15,15 +15,15 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir.elf.converters;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import org.apache.kafka.connect.data.Date;
 import org.apache.kafka.connect.data.Field;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.data.Time;
 import org.apache.kafka.connect.data.Timestamp;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class LogFieldConverterFactory {
 
@@ -133,4 +133,5 @@ public class LogFieldConverterFactory {
     );
     return converter;
   }
-}
+  
+} // LogFieldConverterFactory

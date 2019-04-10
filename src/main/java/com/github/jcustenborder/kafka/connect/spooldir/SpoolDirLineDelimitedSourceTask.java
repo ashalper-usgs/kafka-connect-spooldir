@@ -15,12 +15,6 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import org.apache.kafka.connect.data.Schema;
-import org.apache.kafka.connect.data.SchemaAndValue;
-import org.apache.kafka.connect.source.SourceRecord;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -30,8 +24,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.data.SchemaAndValue;
+import org.apache.kafka.connect.source.SourceRecord;
+
 public class SpoolDirLineDelimitedSourceTask extends AbstractSourceTask<SpoolDirLineDelimitedSourceConnectorConfig> {
-  private static final Logger log = LoggerFactory.getLogger(SpoolDirLineDelimitedSourceTask.class);
 
   @Override
   protected SpoolDirLineDelimitedSourceConnectorConfig config(Map<String, ?> settings) {
@@ -39,7 +36,6 @@ public class SpoolDirLineDelimitedSourceTask extends AbstractSourceTask<SpoolDir
   }
 
   LineNumberReader reader;
-
 
   @Override
   protected void configure(InputStream inputStream, Map<String, String> metadata, Long lastOffset) throws IOException {
@@ -71,4 +67,5 @@ public class SpoolDirLineDelimitedSourceTask extends AbstractSourceTask<SpoolDir
   protected long recordOffset() {
     return this.reader.getLineNumber();
   }
-}
+
+} // SpoolDirLineDelimitedSourceTask
