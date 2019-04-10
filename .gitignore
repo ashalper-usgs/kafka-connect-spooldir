@@ -2,3 +2,7 @@ target
 *.iml
 .okhttpcache
 ELFTesting.properties
+/.settings/
+/.project
+/.classpath
+/.checkstyle
