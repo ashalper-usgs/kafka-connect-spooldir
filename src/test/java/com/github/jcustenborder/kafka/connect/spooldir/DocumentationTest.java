@@ -15,8 +15,11 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
+import org.junit.jupiter.api.Disabled;
+
 import com.github.jcustenborder.kafka.connect.utils.BaseDocumentationTest;
 
+@Disabled
 public class DocumentationTest extends BaseDocumentationTest {
 
 }

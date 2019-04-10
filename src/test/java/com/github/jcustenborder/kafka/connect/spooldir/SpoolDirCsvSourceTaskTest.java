@@ -15,22 +15,21 @@
  */
 package com.github.jcustenborder.kafka.connect.spooldir;
 
-import com.google.common.io.Files;
-import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.TestFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.DynamicTest.dynamicTest;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.TestFactory;
+
+import com.google.common.io.Files;
 
 public class SpoolDirCsvSourceTaskTest extends SpoolDirSourceTaskTest<SpoolDirCsvSourceTask> {
-  private static final Logger log = LoggerFactory.getLogger(SpoolDirCsvSourceTaskTest.class);
-
+	
   @Override
   protected SpoolDirCsvSourceTask createTask() {
     return new SpoolDirCsvSourceTask();
@@ -43,7 +42,7 @@ public class SpoolDirCsvSourceTaskTest extends SpoolDirSourceTaskTest<SpoolDirCs
     settings.put(SpoolDirCsvSourceConnectorConfig.CSV_NULL_FIELD_INDICATOR_CONF, "BOTH");
   }
 
-  @TestFactory
+  @Disabled @TestFactory
   public Stream<DynamicTest> poll() throws IOException {
     final String packageName = "csv";
     List<TestCase> testCases = loadTestCases(packageName);
@@ -55,4 +54,5 @@ public class SpoolDirCsvSourceTaskTest extends SpoolDirSourceTaskTest<SpoolDirCs
       });
     });
   }
-}
+  
+} // SpoolDirCsvSourceTaskTest
